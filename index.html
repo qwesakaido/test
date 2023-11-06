@@ -8,24 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.html" method="post">
+    <form action="index.html" method="post" onsubmit="return Func1();">
         <h2>Форма</h2>
         <label for="name"><i class="fa fa-user"></i> Имя</label>
-        <input type="text" name="name" id="name" placeholder="Антон">
-        <span id="nameError" class="error"></span>
+        <input type="text" name="name" id="name" placeholder="Антон" required>
 
         <label for="email1"><i class="fa fa-envelope"></i> Почта</label>
-        <input type="email" name="email1" id="email1" placeholder="qwe@mail.ru">
-        <span id="emailError" class="error"></span>
+        <input type="email" name="email1" id="email1" placeholder="qwe@mail.ru" required>
 
         <label for="phone"><i class="fa fa-phone"></i> Номер</label>
         <input type="number" name="phone" id="phone" placeholder="+375291112233">
 
         <label for="pass"><i class="fa fa-lock"></i> Пароль</label>
-        <input type="password" name="pass" id="pass" placeholder="*********">
-        <span id="passError" class="error"></span>
+        <input type="password" name="pass" id="pass" placeholder="*********" required>
 
-        <input type="button" value="Отправить" onclick="Func2()">
+        <input type="submit" value="Отправить">
     </form>
     <script src="script.js"></script>
 </body>
