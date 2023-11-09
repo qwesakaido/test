@@ -1,21 +1,29 @@
-function Func1(){
-    let nameV = document.getElementById("name").value;
-    let emailV = document.getElementById("email1").value;
-    let phoneV = document.getElementById("phone").value;
-    let passV = document.getElementById("pass").value;
+function validateForm(){
+    const requiredBlocks = document.querySelectorAll('.required');
+    const inputValues = {};
 
-    if (!nameV || !emailV || !passV){
-        alert("Поля должны быть заполнены!")
-        return false;
-    }
-    else{
-        alert("Имя: " + nameV + "\nПочта: " + emailV + "\nНомер: " + phoneV + "\nПароль: " + passV)
-        return true;
+    for (let i = 0; i < requiredBlocks.length; i++){
+        const item = requiredBlocks[i];
+        const inputElement = item.querySelector('input');
+        const inputValue = inputElement.value;
+
+        if(!inputValue){
+            item.querySelector('.error').style.display = 'block';
+            return false;
+        }
+        inputValues[inputElement.name] = inputValue;
     }
 
-    document.getElementById("name").value = "";
-    document.getElementById("email1").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("pass").value = "";
+    let alertMessage = "Значения введенных полей:\n";
+    for(const fieldName in inputValues){
+        alertMessage += fieldName + ": " + inputValues[fieldName] + "\n";
+    }
+
+    alert(alertMessage);
+    return true;
     
+}
+
+function hideError(inputElement){
+    inputElement.parentNode.querySelector('.error').style.display = 'none';
 }

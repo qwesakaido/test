@@ -8,19 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.html" method="post" onsubmit="return Func1();">
+    <form action="index.html" method="post" onsubmit="return validateForm();">
         <h2>Форма</h2>
-        <label for="name"><i class="fa fa-user"></i> Имя</label>
-        <input type="text" name="name" id="name" placeholder="Антон" required>
-
-        <label for="email1"><i class="fa fa-envelope"></i> Почта</label>
-        <input type="email" name="email1" id="email1" placeholder="qwe@mail.ru" required>
-
+        <div class="required">
+            <label for="name"><i class="fa fa-user"></i> Имя</label>
+            <input type="text" name="name" id="name" placeholder="Антон" oninput="hideError(this)">
+            <div class="error">Поле обязательно для заполнения</div>
+        </div>
+        <div class="required">
+            <label for="email1"><i class="fa fa-envelope"></i> Почта</label>
+            <input type="email" name="email1" id="email1" placeholder="qwe@mail.ru" oninput="hideError(this)">
+            <div class="error">Поле обязательно для заполнения</div>
+        </div>
+        <div class="required">
+            <label for="pass"><i class="fa fa-lock"></i> Пароль</label>
+            <input type="password" name="pass" id="pass" placeholder="*********" oninput="hideError(this)">
+            <div class="error">Поле обязательно для заполнения</div>
+        </div>
         <label for="phone"><i class="fa fa-phone"></i> Номер</label>
         <input type="number" name="phone" id="phone" placeholder="+375291112233">
-
-        <label for="pass"><i class="fa fa-lock"></i> Пароль</label>
-        <input type="password" name="pass" id="pass" placeholder="*********" required>
 
         <input type="submit" value="Отправить">
     </form>
